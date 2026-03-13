@@ -33,6 +33,7 @@ td input[type=text]{width:100%;min-width:90px;padding:.25rem .4rem;border:1px so
 td input:hover{border-color:var(--bd)}td input:focus{border-color:var(--pl);background:var(--sf);box-shadow:0 0 0 2px rgba(46,95,161,.1)}
 td input.ok{color:var(--gn)}td input.no{color:var(--tl)}td input.no::placeholder{color:var(--tl);font-style:italic}
 .dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:.25rem}.dot.g{background:var(--gn)}.dot.p{background:var(--ac)}.dot.r{background:var(--rd)}
+.dlb{background:none;border:1px solid var(--bd);border-radius:5px;padding:.2rem .45rem;cursor:pointer;font-size:.7rem;color:var(--tm);transition:all .15s;line-height:1}.dlb:hover{background:var(--pr);color:#fff;border-color:var(--pr)}
 .mbg{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;display:none;align-items:center;justify-content:center;padding:1rem}.mbg.show{display:flex}
 .mdl{background:var(--sf);border-radius:12px;max-width:900px;width:100%;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.2)}
 .mh{padding:1rem 1.3rem;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center}.mh h3{font-family:'Source Serif 4',serif;font-size:1.05rem;font-weight:700;color:var(--pr)}.mh button{background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--tm);padding:.2rem}
@@ -46,7 +47,7 @@ footer{border-top:1px solid var(--bd);padding:1.2rem;text-align:center;font-size
 <header><div class="wrap"><h1>📋 PedPer — Profile Tracker</h1><div class="sub">Editör Kurulu &amp; Bilim Kurulu profil bilgi takip ve düzenleme · <a href="https://pedagogicalperspective.com" target="_blank">pedagogicalperspective.com</a></div><div class="hr" id="hB"></div></div></header>
 <div class="tb"><input type="text" id="src" placeholder="İsim, kurum veya ülke ara…"><select id="fS"><option value="all">Tüm Bölümler</option></select><button class="fb on" data-f="all">Tümü</button><button class="fb" data-f="ok">✓ Tam</button><button class="fb" data-f="partial">◐ Kısmi</button><button class="fb" data-f="no">✗ Eksik</button><div class="tl"><a href="https://www.scopus.com/freelookup/form/author.uri" target="_blank">Scopus</a><a href="https://www.webofscience.com/wos/author/search" target="_blank">WoS</a><a href="https://orcid.org/orcid-search/search" target="_blank">ORCID</a><a href="https://ror.org/search" target="_blank">ROR</a></div></div>
 <div class="dash" id="dash"></div>
-<div class="acts"><button class="ab sav" onclick="sav()">💾 Kaydet</button><button class="ab exp" onclick="expAll()">📤 Tümünü Dışa Aktar</button><button class="ab exp" onclick="expFlt()" style="background:var(--pl)">📋 Filtreleneni Aktar</button><button class="ab imp" onclick="document.getElementById('impF').click()">📥 JSON İçe Aktar</button><button class="ab dl" onclick="dlJSON()">⬇ JSON İndir</button><button class="ab rst" onclick="rst()">🗑 Sıfırla</button><input type="file" id="impF" accept=".json" style="display:none" onchange="impJ(event)"><span class="smsg" id="sm">✓ Kaydedildi</span></div>
+<div class="acts"><button class="ab sav" onclick="sav()">💾 Kaydet</button><button class="ab exp" onclick="expAll()">📤 Tümünü Dışa Aktar</button><button class="ab exp" onclick="expFlt()" style="background:var(--pl)">📋 Filtreleneni Aktar</button><button class="ab imp" onclick="document.getElementById('impF').click()">📥 JSON İçe Aktar</button><button class="ab dl" onclick="dlJSON()">⬇ JSON İndir</button><button class="ab dl" onclick="dlAll()">⬇ Tüm Kartları İndir</button><button class="ab rst" onclick="rst()">🗑 Sıfırla</button><input type="file" id="impF" accept=".json" style="display:none" onchange="impJ(event)"><span class="smsg" id="sm">✓ Kaydedildi</span></div>
 <div class="ct" id="ct"></div>
 <div class="mbg" id="modal"><div class="mdl"><div class="mh"><h3 id="mT">OJS Çıktısı</h3><button onclick="cM()">×</button></div><div class="mb"><pre id="mC"></pre></div><div class="mf"><button class="cl" onclick="cM()">Kapat</button><button class="cp" onclick="cpC()">📋 Kopyala</button></div></div></div>
 <footer>PedPer Profile Tracker · eISSN: 2822-4841 · Son güncelleme: <span id="upd"></span> · Veriler tarayıcıda saklanır · <a href="https://pedagogicalperspective.com">pedagogicalperspective.com</a></footer>
@@ -58,27 +59,24 @@ var DEF=[
 {sec:"Editorial Board",sub:"Educational Technology, AI & Digital Learning",name:"Tinne De Laet, Ph.D.",aff:"KU Leuven",co:"Belgium",mail:"tinne.delaet@kuleuven.be",orcid:"0000-0003-0624-3305",scopus:"15761675700",wos:"",ror:"05f950310"},
 {sec:"Editorial Board",sub:"Educational Technology, AI & Digital Learning",name:"Inge Molenaar, Ph.D.",aff:"Radboud University",co:"Netherlands",mail:"i.molenaar@pwo.ru.nl",orcid:"0000-0003-4639-2524",scopus:"",wos:"",ror:"016xsfp80"},
 {sec:"Editorial Board",sub:"Educational Technology, AI & Digital Learning",name:"Ying Zheng, Ph.D.",aff:"University of Southampton",co:"United Kingdom",mail:"y.zheng@soton.ac.uk",orcid:"0000-0003-2574-0358",scopus:"57189272257",wos:"",ror:"01ryk1543"},
-{sec:"Editorial Board",sub:"Educational Technology, AI & Digital Learning",name:"Mustafa Coban, Ph.D.",aff:"Coventry University",co:"United Kingdom",mail:"",orcid:"0000-0002-7059-4081",scopus:"",wos:"",ror:"01tgmhj36"},
 {sec:"Editorial Board",sub:"Teacher Education & Professional Development",name:"Selcuk Dogan, Ph.D.",aff:"Georgia Southern University",co:"USA",mail:"sdogan@georgiasouthern.edu",orcid:"",scopus:"",wos:"",ror:"04qqg1109"},
 {sec:"Editorial Board",sub:"Language Education & Applied Linguistics",name:"Kenan Dikilitas, Ph.D.",aff:"University of Bergen",co:"Norway",mail:"kenan.dikilitas@uib.no",orcid:"0000-0001-9387-8696",scopus:"",wos:"",ror:"03zga2b32"},
-{sec:"Editorial Board",sub:"Language Education & Applied Linguistics",name:"Mahmoud Ali Rababah, Ph.D.",aff:"Al-Balqa Applied University",co:"Jordan",mail:"",orcid:"",scopus:"",wos:"",ror:"05k8wg936"},
-{sec:"Editorial Board",sub:"Language Education & Applied Linguistics",name:"James David Clubb, Lec.",aff:"University of Hradec Kralove",co:"Czech Republic",mail:"",orcid:"",scopus:"",wos:"",ror:"05ktp1g64"},
+{sec:"Editorial Board",sub:"Language Education & Applied Linguistics",name:"Mahmoud Ali Rababah, Ph.D.",aff:"Al-Balqa Applied University",co:"Jordan",mail:"",orcid:"0000-0002-0930-4030",scopus:"",wos:"",ror:"05k8wg936"},
 {sec:"Editorial Board",sub:"Early Childhood Education",name:"Megan Kunze, Ph.D.",aff:"University of Oregon",co:"USA",mail:"mkunze@uoregon.edu",orcid:"0000-0002-4449-2719",scopus:"57216511281",wos:"",ror:"0293rh119"},
 {sec:"Editorial Board",sub:"Early Childhood Education",name:"Maria Dardanou, Ph.D.",aff:"UiT Arctic University of Norway",co:"Norway",mail:"maria.dardanou@uit.no",orcid:"0000-0003-3247-158X",scopus:"57212549374",wos:"",ror:"00wge5k78"},
-{sec:"Editorial Board",sub:"Inclusive Education, Special Education & Counseling",name:"Allaina Douglas, Ph.D.",aff:"Chicago School of Professional Psychology",co:"USA",mail:"",orcid:"",scopus:"",wos:"",ror:""},
-{sec:"Editorial Board",sub:"Inclusive Education, Special Education & Counseling",name:"Kelley Munger, Ph.D.",aff:"Global Counselling Network",co:"USA",mail:"",orcid:"",scopus:"",wos:"",ror:""},
+{sec:"Editorial Board",sub:"Inclusive Education, Special Education & Counseling",name:"Umesh Sharma, Prof.",aff:"Monash University / University of Nottingham Ningbo China",co:"Australia / India",mail:"umesh.sharma@monash.edu",orcid:"0000-0002-5198-9379",scopus:"",wos:"",ror:"02bfwt286"},
+{sec:"Editorial Board",sub:"Inclusive Education, Special Education & Counseling",name:"Matthias Grünke, Prof.",aff:"University of Cologne",co:"Germany",mail:"matthias.gruenke@uni-koeln.de",orcid:"0000-0003-4249-6035",scopus:"",wos:"",ror:"00rcxh774"},
 {sec:"Editorial Board",sub:"Inclusive Education, Special Education & Counseling",name:"Christine Drew, Ph.D.",aff:"Auburn University",co:"USA",mail:"cmd0109@auburn.edu",orcid:"",scopus:"",wos:"",ror:"02v80fc35"},
-{sec:"Editorial Board",sub:"Inclusive Education, Special Education & Counseling",name:"Lindsay Glugatch, Ph.D.",aff:"New Summit Behavioral Therapy",co:"USA",mail:"",orcid:"",scopus:"",wos:"",ror:""},
 {sec:"Editorial Board",sub:"Social Studies, Citizenship & Comparative Education",name:"Seth A. Agbo, Ph.D.",aff:"Lakehead University",co:"Canada",mail:"sagbo@lakeheadu.ca",orcid:"",scopus:"",wos:"",ror:"01njkbr59"},
-{sec:"Editorial Board",sub:"Social Studies, Citizenship & Comparative Education",name:"Abdelouahab Belazoui, Ph.D.",aff:"University of Batna 2",co:"Algeria",mail:"",orcid:"",scopus:"",wos:"",ror:"01dq98m78"},
+{sec:"Editorial Board",sub:"Social Studies, Citizenship & Comparative Education",name:"Abdelouahab Belazoui, Ph.D.",aff:"University of Batna 2",co:"Algeria",mail:"",orcid:"0000-0003-3222-7982",scopus:"",wos:"",ror:"01dq98m78"},
 {sec:"Editorial Board",sub:"Social Studies, Citizenship & Comparative Education",name:"Heather Sharp, Ph.D.",aff:"University of Newcastle",co:"Australia",mail:"heather.sharp@newcastle.edu.au",orcid:"0000-0001-8487-6605",scopus:"",wos:"",ror:"00eae9z71"},
 {sec:"Editorial Board",sub:"STEM, Science & Mathematics Education",name:"Almighty C. Tabuena, Ph.D.",aff:"Philippine Normal University",co:"Philippines",mail:"tabuena.ac@pnu.edu.ph",orcid:"0000-0002-5875-3617",scopus:"57260774300",wos:"AAH-9478-2021",ror:""},
 {sec:"Editorial Board",sub:"STEM, Science & Mathematics Education",name:"Urszula Majdanska-Wachowicz, Ph.D.",aff:"University of Zielona Gora",co:"Poland",mail:"",orcid:"",scopus:"",wos:"",ror:"01dr6c206"},
-{sec:"Editorial Board",sub:"STEM, Science & Mathematics Education",name:"Lee G. Baraquia, Ph.D.",aff:"Misamis University",co:"Philippines",mail:"",orcid:"",scopus:"",wos:"",ror:""},
-{sec:"Editorial Board",sub:"General Education Research",name:"Deni Iriyadi, Ph.D.",aff:"University of Banten",co:"Indonesia",mail:"",orcid:"",scopus:"",wos:"",ror:""},
-{sec:"Editorial Board",sub:"General Education Research",name:"Natasha Tageja, Ph.D.",aff:"University of Delhi",co:"India",mail:"",orcid:"",scopus:"",wos:"",ror:"02qrfbp63"},
-{sec:"Editorial Board",sub:"General Education Research",name:"Sonia David, Ph.D.",aff:"Jain University",co:"India",mail:"",orcid:"",scopus:"",wos:"",ror:"03s01yf77"},
-{sec:"Language Editors",sub:"",name:"E. Yasin Çiftçi, Ph.D.",aff:"Ordu University",co:"Türkiye",mail:"",orcid:"",scopus:"",wos:"",ror:"028k5qw24"},
+{sec:"Editorial Board",sub:"STEM, Science & Mathematics Education",name:"Sibel Erduran, Prof.",aff:"University of Oxford",co:"United Kingdom",mail:"sibel.erduran@education.ox.ac.uk",orcid:"0000-0001-5226-0136",scopus:"",wos:"",ror:"052gg0110"},
+{sec:"Editorial Board",sub:"General Education Research",name:"Gita Steiner-Khamsi, Prof.",aff:"Teachers College, Columbia University / Geneva Graduate Institute",co:"USA / Switzerland",mail:"gs174@tc.columbia.edu",orcid:"0000-0001-9986-2150",scopus:"6506682565",wos:"",ror:"00hj8s172"},
+{sec:"Editorial Board",sub:"General Education Research",name:"Yusuf Sayed, Prof.",aff:"University of Cambridge / University of Sussex",co:"United Kingdom / South Africa",mail:"ys737@cam.ac.uk",orcid:"0000-0002-2534-8420",scopus:"",wos:"",ror:"013meh722"},
+{sec:"Editorial Board",sub:"General Education Research",name:"Pasi Sahlberg, Prof.",aff:"University of Melbourne",co:"Australia / Finland",mail:"",orcid:"0000-0003-3319-7578",scopus:"",wos:"",ror:"01ej9dk98"},
+{sec:"Language Editors",sub:"",name:"E. Yasin Çiftçi, Ph.D.",aff:"Ordu University",co:"Türkiye",mail:"",orcid:"0000-0003-3225-4251",scopus:"",wos:"",ror:"028k5qw24"},
 {sec:"Language Editors",sub:"",name:"F. Umut Özçelik, Lec.",aff:"Ordu University",co:"Türkiye",mail:"",orcid:"",scopus:"",wos:"",ror:"028k5qw24"},
 {sec:"Secretary",sub:"",name:"Ceren Çinikaya, Res. Ast.",aff:"Ordu University",co:"Türkiye",mail:"",orcid:"",scopus:"",wos:"",ror:"028k5qw24"},
 {sec:"Recommended Candidates",sub:"Assessment, Measurement & Evaluation",name:"Zi Yan, Ph.D.",aff:"Education University of Hong Kong",co:"Hong Kong, China",mail:"zyan@eduhk.hk",orcid:"0000-0001-9305-884X",scopus:"45562034600",wos:"",ror:"04q3gk398"},
@@ -159,6 +157,47 @@ function expFlt(){ri();var v=gv();if(!v.length)return alert("Filtre sonucu boş.
 function sM(t,c){document.getElementById("mT").textContent=t;document.getElementById("mC").textContent=c;document.getElementById("modal").classList.add("show");}
 function cM(){document.getElementById("modal").classList.remove("show");}
 function cpC(){navigator.clipboard.writeText(document.getElementById("mC").textContent).then(function(){var b=document.querySelector(".cp");b.textContent="✓ Kopyalandı!";setTimeout(function(){b.textContent="📋 Kopyala";},1500);});}
+function dlP(i){
+  ri();var p=D[i];if(!p)return;
+  var ln="═══════════════════════════════════════════════════\n";
+  var t=ln+"  PEDAGOGICAL PERSPECTIVE — Researcher Profile Card\n  eISSN: 2822-4841 · pedagogicalperspective.com\n"+ln+"\n";
+  t+="  Name        : "+p.name+"\n";
+  t+="  Affiliation : "+p.aff+"\n";
+  t+="  Country     : "+p.co+"\n";
+  t+="  Section     : "+p.sec+"\n";
+  if(p.sub)t+="  Field       : "+p.sub+"\n";
+  t+="\n── Identifiers & Links ─────────────────────────────\n\n";
+  t+="  Email       : "+(p.mail||"—")+"\n";
+  t+="  ORCID       : "+(p.orcid?"https://orcid.org/"+p.orcid:"—")+"\n";
+  t+="  Scopus      : "+(p.scopus?"https://www.scopus.com/authid/detail.uri?authorId="+p.scopus:"—")+"\n";
+  t+="  WoS         : "+(p.wos?"https://www.webofscience.com/wos/author/record/"+p.wos:"—")+"\n";
+  t+="  ROR         : "+(p.ror?"https://ror.org/"+p.ror:"—")+"\n";
+  var ok=0;F.forEach(function(f){if(p[f])ok++;});
+  t+="\n── Status ─────────────────────────────────────────\n\n";
+  t+="  Completeness: "+ok+"/"+F.length+" ("+(ok===F.length?"Complete":ok===0?"Missing":"Partial")+")\n";
+  t+="\n── OJS Shortcode ──────────────────────────────────\n\n";
+  t+="  "+sc(p)+"\n";
+  t+="\n"+ln+"  Generated: "+new Date().toISOString().split("T")[0]+"\n"+ln;
+  var fn=p.name.replace(/[^a-zA-Z0-9 ]/g,"").replace(/ +/g,"_").toLowerCase();
+  var b=new Blob([t],{type:"text/plain;charset=utf-8"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="pedper_"+fn+".txt";a.click();
+}
+function dlAll(){
+  ri();var ln="═══════════════════════════════════════════════════\n";
+  var out="PEDAGOGICAL PERSPECTIVE — All Researcher Profiles\neISSN: 2822-4841 · pedagogicalperspective.com\nGenerated: "+new Date().toISOString().split("T")[0]+"\nTotal: "+D.length+" researchers\n"+ln+"\n";
+  var cs="";D.forEach(function(p,i){
+    if(p.sec!==cs){cs=p.sec;out+="\n\n"+ln+"  "+cs.toUpperCase()+"\n"+ln+"\n";}
+    out+="  "+(i+1)+". "+p.name+"\n";
+    out+="     "+p.aff+" · "+p.co+"\n";
+    if(p.sub)out+="     Field: "+p.sub+"\n";
+    out+="     Email: "+(p.mail||"—")+" | ORCID: "+(p.orcid||"—")+" | Scopus: "+(p.scopus||"—")+" | WoS: "+(p.wos||"—")+" | ROR: "+(p.ror||"—")+"\n";
+    var ok=0;F.forEach(function(f){if(p[f])ok++;});
+    out+="     Status: "+ok+"/5 "+(ok===5?"✓":ok===0?"✗":"◐")+"\n\n";
+  });
+  out+=ln+"  END OF REPORT\n"+ln;
+  var b=new Blob([out],{type:"text/plain;charset=utf-8"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="pedper_all_profiles_"+new Date().toISOString().split("T")[0]+".txt";a.click();
+}
 
 function render(){
   var q=document.getElementById("src").value.toLowerCase(),sf=document.getElementById("fS").value,ss=document.querySelector(".fb.on").dataset.f;
@@ -171,8 +210,8 @@ function render(){
   // tables
   var h="";SECS.forEach(function(s){if(!grp[s])return;var it=grp[s];h+='<div class="sec"><div class="sh" onclick="tg(this)"><span class="cv">▼</span><h2>'+s+'</h2><span class="cn">'+it.length+' · '+pc(it)+'%</span></div><div class="sb">';
   var su={};it.forEach(function(p){var k=p.sub||"—";if(!su[k])su[k]=[];su[k].push(p);});
-  Object.keys(su).forEach(function(k){if(k!=="—")h+='<div class="subh"><h3>'+k+'</h3></div>';h+='<div class="tw"><table><thead><tr><th>#</th><th>İsim / Kurum</th><th>Ülke</th>';F.forEach(function(f){h+='<th>'+LB[f]+'</th>';});h+='</tr></thead><tbody>';
-  su[k].forEach(function(p,j){var dc=p._s==="ok"?"g":p._s==="partial"?"p":"r";h+='<tr><td><span class="dot '+dc+'"></span>'+(j+1)+'</td><td class="nc">'+p.name+'<span class="af">'+p.aff+'</span></td><td style="font-size:.72rem">'+p.co+'</td>';F.forEach(function(f){h+='<td><input type="text" data-i="'+p._i+'" data-f="'+f+'" value="'+(p[f]||"").replace(/"/g,"&quot;")+'" placeholder="'+PH[f]+'" class="'+(p[f]?"ok":"no")+'" onchange="oe(this)"></td>';});h+='</tr>';});
+  Object.keys(su).forEach(function(k){if(k!=="—")h+='<div class="subh"><h3>'+k+'</h3></div>';h+='<div class="tw"><table><thead><tr><th>#</th><th>İsim / Kurum</th><th>Ülke</th>';F.forEach(function(f){h+='<th>'+LB[f]+'</th>';});h+='<th style="text-align:center">⬇</th></tr></thead><tbody>';
+  su[k].forEach(function(p,j){var dc=p._s==="ok"?"g":p._s==="partial"?"p":"r";h+='<tr><td><span class="dot '+dc+'"></span>'+(j+1)+'</td><td class="nc">'+p.name+'<span class="af">'+p.aff+'</span></td><td style="font-size:.72rem">'+p.co+'</td>';F.forEach(function(f){h+='<td><input type="text" data-i="'+p._i+'" data-f="'+f+'" value="'+(p[f]||"").replace(/"/g,"&quot;")+'" placeholder="'+PH[f]+'" class="'+(p[f]?"ok":"no")+'" onchange="oe(this)"></td>';});h+='<td style="text-align:center"><button class="dlb" onclick="dlP('+p._i+')" title="Profili indir">⬇</button></td></tr>';});
   h+='</tbody></table></div>';});h+='</div></div>';});
   document.getElementById("ct").innerHTML=h;
 }
