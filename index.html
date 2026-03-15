@@ -24,7 +24,7 @@ header h1{font-family:'Source Serif 4',serif;font-size:1.65rem;font-weight:700}h
 .smsg{font-size:.76rem;color:var(--gn);font-weight:600;padding:.5rem;opacity:0;transition:opacity .3s}
 .ct{max-width:1260px;margin:.8rem auto 3rem;padding:0 1.5rem}.sec{margin-bottom:1.3rem}
 .sh{display:flex;align-items:center;gap:.55rem;margin-bottom:.5rem;cursor:pointer;user-select:none}.sh h2{font-family:'Source Serif 4',serif;font-size:1.05rem;font-weight:700;color:var(--pr)}.sh .cn{font-size:.66rem;font-weight:600;padding:.1rem .45rem;border-radius:10px;background:var(--sa);color:var(--tm)}.sh .cv{font-size:.7rem;color:var(--tl);transition:transform .2s}.sh.cl .cv{transform:rotate(-90deg)}
-.subh{margin:.8rem 0 .3rem .1rem}.subh h3{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ac)}
+.subh{margin:.8rem 0 .3rem .1rem;display:flex;align-items:center;gap:.5rem}.subh h3{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ac)}
 .tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.76rem}
 thead th{background:var(--sa);padding:.45rem .5rem;text-align:left;font-weight:700;font-size:.66rem;text-transform:uppercase;letter-spacing:.04em;color:var(--tm);border-bottom:2px solid var(--bd);white-space:nowrap;position:sticky;top:0;z-index:1}
 tbody tr{border-bottom:1px solid var(--bl);transition:background .1s}tbody tr:hover{background:#faf8f4}
@@ -33,14 +33,17 @@ td input[type=text]{width:100%;min-width:90px;padding:.25rem .4rem;border:1px so
 td input:hover{border-color:var(--bd)}td input:focus{border-color:var(--pl);background:var(--sf);box-shadow:0 0 0 2px rgba(46,95,161,.1)}
 td input.ok{color:var(--gn)}td input.no{color:var(--tl)}td input.no::placeholder{color:var(--tl);font-style:italic}
 .dot{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:.25rem}.dot.g{background:var(--gn)}.dot.p{background:var(--ac)}.dot.r{background:var(--rd)}
-.dlb{background:none;border:1px solid var(--bd);border-radius:5px;padding:.2rem .45rem;cursor:pointer;font-size:.7rem;color:var(--tm);transition:all .15s;line-height:1}.dlb:hover{background:var(--pr);color:#fff;border-color:var(--pr)}
+.ib{background:none;border:1px solid var(--bd);border-radius:5px;padding:.2rem .45rem;cursor:pointer;font-size:.7rem;color:var(--tm);transition:all .15s;line-height:1}.ib:hover{background:var(--pr);color:#fff;border-color:var(--pr)}.ib.del:hover{background:var(--rd);border-color:var(--rd)}
+.addb{display:inline-flex;align-items:center;gap:.25rem;padding:.3rem .7rem;border:1px dashed var(--bd);border-radius:var(--r);font-family:inherit;font-size:.72rem;font-weight:600;color:var(--pl);background:transparent;cursor:pointer;transition:all .15s;margin-top:.4rem}.addb:hover{background:var(--pl);color:#fff;border-style:solid;border-color:var(--pl)}
+.addsub{display:inline-flex;align-items:center;gap:.25rem;padding:.25rem .6rem;border:1px dashed var(--ac);border-radius:var(--r);font-family:inherit;font-size:.68rem;font-weight:600;color:var(--ac);background:transparent;cursor:pointer;transition:all .15s;margin:.5rem 0}.addsub:hover{background:var(--ac);color:#fff;border-style:solid}
 .mbg{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;display:none;align-items:center;justify-content:center;padding:1rem}.mbg.show{display:flex}
 .mdl{background:var(--sf);border-radius:12px;max-width:900px;width:100%;max-height:85vh;display:flex;flex-direction:column;box-shadow:0 20px 60px rgba(0,0,0,.2)}
 .mh{padding:1rem 1.3rem;border-bottom:1px solid var(--bd);display:flex;justify-content:space-between;align-items:center}.mh h3{font-family:'Source Serif 4',serif;font-size:1.05rem;font-weight:700;color:var(--pr)}.mh button{background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--tm);padding:.2rem}
 .mb{padding:1rem 1.3rem;overflow-y:auto;flex:1}.mb pre{background:#1e1e2e;color:#cdd6f4;padding:1rem;border-radius:var(--r);font-family:'JetBrains Mono',monospace;font-size:.7rem;line-height:1.7;overflow-x:auto;white-space:pre-wrap;word-break:break-all}
-.mf{padding:.8rem 1.3rem;border-top:1px solid var(--bd);display:flex;gap:.4rem;justify-content:flex-end}.mf button{padding:.45rem 1rem;border:none;border-radius:var(--r);font-family:inherit;font-size:.8rem;font-weight:600;cursor:pointer}.mf .cp{background:var(--pr);color:#fff}.mf .cp:hover{background:#142240}.mf .cl{background:var(--sa);color:var(--tx)}
+.mb .frm{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}.mb .frm label{font-size:.72rem;font-weight:600;color:var(--tm);display:flex;flex-direction:column;gap:.2rem}.mb .frm input,.mb .frm select{padding:.45rem .6rem;border:1px solid var(--bd);border-radius:var(--r);font-family:inherit;font-size:.8rem;outline:none}.mb .frm input:focus,.mb .frm select:focus{border-color:var(--pl)}.mb .frm .full{grid-column:1/-1}
+.mf{padding:.8rem 1.3rem;border-top:1px solid var(--bd);display:flex;gap:.4rem;justify-content:flex-end}.mf button{padding:.45rem 1rem;border:none;border-radius:var(--r);font-family:inherit;font-size:.8rem;font-weight:600;cursor:pointer}.mf .cp{background:var(--pr);color:#fff}.mf .cp:hover{background:#142240}.mf .cl{background:var(--sa);color:var(--tx)}.mf .sv{background:var(--gn);color:#fff}.mf .sv:hover{background:#245a33}
 footer{border-top:1px solid var(--bd);padding:1.2rem;text-align:center;font-size:.7rem;color:var(--tm)}footer a{color:var(--pl)}
-@media(max-width:768px){header h1{font-size:1.3rem}.dash{grid-template-columns:repeat(2,1fr)}.tb,.acts{flex-direction:column}.tl{margin-left:0}}
+@media(max-width:768px){header h1{font-size:1.3rem}.dash{grid-template-columns:repeat(2,1fr)}.tb,.acts{flex-direction:column}.tl{margin-left:0}.mb .frm{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -49,180 +52,5 @@ footer{border-top:1px solid var(--bd);padding:1.2rem;text-align:center;font-size
 <div class="dash" id="dash"></div>
 <div class="acts"><button class="ab sav" onclick="sav()">💾 Kaydet</button><button class="ab exp" onclick="expAll()">📤 Tümünü Dışa Aktar</button><button class="ab exp" onclick="expFlt()" style="background:var(--pl)">📋 Filtreleneni Aktar</button><button class="ab imp" onclick="document.getElementById('impF').click()">📥 JSON İçe Aktar</button><button class="ab dl" onclick="dlJSON()">⬇ JSON İndir</button><button class="ab dl" onclick="dlAll()">⬇ Tüm Kartları İndir</button><button class="ab rst" onclick="rst()">🗑 Sıfırla</button><input type="file" id="impF" accept=".json" style="display:none" onchange="impJ(event)"><span class="smsg" id="sm">✓ Kaydedildi</span></div>
 <div class="ct" id="ct"></div>
-<div class="mbg" id="modal"><div class="mdl"><div class="mh"><h3 id="mT">OJS Çıktısı</h3><button onclick="cM()">×</button></div><div class="mb"><pre id="mC"></pre></div><div class="mf"><button class="cl" onclick="cM()">Kapat</button><button class="cp" onclick="cpC()">📋 Kopyala</button></div></div></div>
+<div class="mbg" id="modal"><div class="mdl"><div class="mh"><h3 id="mT">OJS Çıktısı</h3><button onclick="cM()">×</button></div><div class="mb" id="mB"><pre id="mC"></pre></div><div class="mf" id="mF"><button class="cl" onclick="cM()">Kapat</button><button class="cp" onclick="cpC()">📋 Kopyala</button></div></div></div>
 <footer>PedPer Profile Tracker · eISSN: 2822-4841 · Son güncelleme: <span id="upd"></span> · Veriler tarayıcıda saklanır · <a href="https://pedagogicalperspective.com">pedagogicalperspective.com</a></footer>
-<script>
-var F=["mail","orcid","scopus","wos","ror"],LB={mail:"E-posta",orcid:"ORCID",scopus:"Scopus",wos:"WoS",ror:"ROR"},PH={mail:"email@domain.com",orcid:"0000-0000-0000-0000",scopus:"Scopus Author ID",wos:"WoS Researcher ID",ror:"ROR ID"};
-var SECS=["Editor in Chief","Editorial Board","Language Editors","Secretary","Recommended Candidates","Scientific Advisory Board"];
-var DEF=[
-{sec:"Editor in Chief",sub:"",name:"Emrah Akman, Assoc. Prof.",aff:"Ordu University",co:"Türkiye",mail:"editor@pedagogicalperspective.com",orcid:"0000-0003-0637-919X",scopus:"57210410608",wos:"17145",ror:"04r0hn449"},
-{sec:"Editorial Board",sub:"Educational Technology, AI & Digital Learning",name:"Tinne De Laet, Ph.D.",aff:"KU Leuven",co:"Belgium",mail:"tinne.delaet@kuleuven.be",orcid:"0000-0003-0624-3305",scopus:"15761675700",wos:"",ror:"05f950310"},
-{sec:"Editorial Board",sub:"Educational Technology, AI & Digital Learning",name:"Inge Molenaar, Ph.D.",aff:"Radboud University",co:"Netherlands",mail:"i.molenaar@pwo.ru.nl",orcid:"0000-0003-4639-2524",scopus:"",wos:"",ror:"016xsfp80"},
-{sec:"Editorial Board",sub:"Educational Technology, AI & Digital Learning",name:"Ying Zheng, Ph.D.",aff:"University of Southampton",co:"United Kingdom",mail:"y.zheng@soton.ac.uk",orcid:"0000-0003-2574-0358",scopus:"57189272257",wos:"",ror:"01ryk1543"},
-{sec:"Editorial Board",sub:"Teacher Education & Professional Development",name:"Selcuk Dogan, Ph.D.",aff:"Georgia Southern University",co:"USA",mail:"sdogan@georgiasouthern.edu",orcid:"",scopus:"",wos:"",ror:"04qqg1109"},
-{sec:"Editorial Board",sub:"Language Education & Applied Linguistics",name:"Kenan Dikilitas, Ph.D.",aff:"University of Bergen",co:"Norway",mail:"kenan.dikilitas@uib.no",orcid:"0000-0001-9387-8696",scopus:"",wos:"",ror:"03zga2b32"},
-{sec:"Editorial Board",sub:"Language Education & Applied Linguistics",name:"Mahmoud Ali Rababah, Ph.D.",aff:"Al-Balqa Applied University",co:"Jordan",mail:"",orcid:"0000-0002-0930-4030",scopus:"",wos:"",ror:"05k8wg936"},
-{sec:"Editorial Board",sub:"Early Childhood Education",name:"Megan Kunze, Ph.D.",aff:"University of Oregon",co:"USA",mail:"mkunze@uoregon.edu",orcid:"0000-0002-4449-2719",scopus:"57216511281",wos:"",ror:"0293rh119"},
-{sec:"Editorial Board",sub:"Early Childhood Education",name:"Maria Dardanou, Ph.D.",aff:"UiT Arctic University of Norway",co:"Norway",mail:"maria.dardanou@uit.no",orcid:"0000-0003-3247-158X",scopus:"57212549374",wos:"",ror:"00wge5k78"},
-{sec:"Editorial Board",sub:"Inclusive Education, Special Education & Counseling",name:"Umesh Sharma, Prof.",aff:"Monash University / University of Nottingham Ningbo China",co:"Australia / India",mail:"umesh.sharma@monash.edu",orcid:"0000-0002-5198-9379",scopus:"",wos:"",ror:"02bfwt286"},
-{sec:"Editorial Board",sub:"Inclusive Education, Special Education & Counseling",name:"Matthias Grünke, Prof.",aff:"University of Cologne",co:"Germany",mail:"matthias.gruenke@uni-koeln.de",orcid:"0000-0003-4249-6035",scopus:"",wos:"",ror:"00rcxh774"},
-{sec:"Editorial Board",sub:"Inclusive Education, Special Education & Counseling",name:"Christine Drew, Ph.D.",aff:"Auburn University",co:"USA",mail:"cmd0109@auburn.edu",orcid:"",scopus:"",wos:"",ror:"02v80fc35"},
-{sec:"Editorial Board",sub:"Social Studies, Citizenship & Comparative Education",name:"Seth A. Agbo, Ph.D.",aff:"Lakehead University",co:"Canada",mail:"sagbo@lakeheadu.ca",orcid:"",scopus:"",wos:"",ror:"01njkbr59"},
-{sec:"Editorial Board",sub:"Social Studies, Citizenship & Comparative Education",name:"Abdelouahab Belazoui, Ph.D.",aff:"University of Batna 2",co:"Algeria",mail:"",orcid:"0000-0003-3222-7982",scopus:"",wos:"",ror:"01dq98m78"},
-{sec:"Editorial Board",sub:"Social Studies, Citizenship & Comparative Education",name:"Heather Sharp, Ph.D.",aff:"University of Newcastle",co:"Australia",mail:"heather.sharp@newcastle.edu.au",orcid:"0000-0001-8487-6605",scopus:"",wos:"",ror:"00eae9z71"},
-{sec:"Editorial Board",sub:"STEM, Science & Mathematics Education",name:"Almighty C. Tabuena, Ph.D.",aff:"Philippine Normal University",co:"Philippines",mail:"tabuena.ac@pnu.edu.ph",orcid:"0000-0002-5875-3617",scopus:"57260774300",wos:"AAH-9478-2021",ror:""},
-{sec:"Editorial Board",sub:"STEM, Science & Mathematics Education",name:"Urszula Majdanska-Wachowicz, Ph.D.",aff:"University of Zielona Gora",co:"Poland",mail:"",orcid:"",scopus:"",wos:"",ror:"01dr6c206"},
-{sec:"Editorial Board",sub:"STEM, Science & Mathematics Education",name:"Sibel Erduran, Prof.",aff:"University of Oxford",co:"United Kingdom",mail:"sibel.erduran@education.ox.ac.uk",orcid:"0000-0001-5226-0136",scopus:"",wos:"",ror:"052gg0110"},
-{sec:"Editorial Board",sub:"General Education Research",name:"Gita Steiner-Khamsi, Prof.",aff:"Teachers College, Columbia University / Geneva Graduate Institute",co:"USA / Switzerland",mail:"gs174@tc.columbia.edu",orcid:"0000-0001-9986-2150",scopus:"6506682565",wos:"",ror:"00hj8s172"},
-{sec:"Editorial Board",sub:"General Education Research",name:"Yusuf Sayed, Prof.",aff:"University of Cambridge / University of Sussex",co:"United Kingdom / South Africa",mail:"ys737@cam.ac.uk",orcid:"0000-0002-2534-8420",scopus:"",wos:"",ror:"013meh722"},
-{sec:"Editorial Board",sub:"General Education Research",name:"Pasi Sahlberg, Prof.",aff:"University of Melbourne",co:"Australia / Finland",mail:"",orcid:"0000-0003-3319-7578",scopus:"",wos:"",ror:"01ej9dk98"},
-{sec:"Language Editors",sub:"",name:"E. Yasin Çiftçi, Ph.D.",aff:"Ordu University",co:"Türkiye",mail:"",orcid:"0000-0003-3225-4251",scopus:"",wos:"",ror:"028k5qw24"},
-{sec:"Language Editors",sub:"",name:"F. Umut Özçelik, Lec.",aff:"Ordu University",co:"Türkiye",mail:"",orcid:"",scopus:"",wos:"",ror:"028k5qw24"},
-{sec:"Secretary",sub:"",name:"Ceren Çinikaya, Res. Ast.",aff:"Ordu University",co:"Türkiye",mail:"",orcid:"",scopus:"",wos:"",ror:"028k5qw24"},
-{sec:"Recommended Candidates",sub:"Assessment, Measurement & Evaluation",name:"Zi Yan, Ph.D.",aff:"Education University of Hong Kong",co:"Hong Kong, China",mail:"zyan@eduhk.hk",orcid:"0000-0001-9305-884X",scopus:"45562034600",wos:"",ror:"04q3gk398"},
-{sec:"Recommended Candidates",sub:"Assessment, Measurement & Evaluation",name:"Juuso H. Nieminen, Ph.D.",aff:"Deakin University",co:"Australia / Finland",mail:"juuso.nieminen@deakin.edu.au",orcid:"0000-0003-3087-8933",scopus:"57205722842",wos:"",ror:"02czsnj07"},
-{sec:"Recommended Candidates",sub:"Assessment, Measurement & Evaluation",name:"Serafina Pastore, Ph.D.",aff:"University of Bari Aldo Moro",co:"Italy",mail:"serafina.pastore@uniba.it",orcid:"0000-0001-8598-021X",scopus:"36633816200",wos:"",ror:"027ynra39"},
-{sec:"Recommended Candidates",sub:"Learning Sciences",name:"Ronnel B. King, Ph.D.",aff:"Chinese University of Hong Kong",co:"Hong Kong / Philippines",mail:"ronnelking@cuhk.edu.hk",orcid:"0000-0003-3953-8390",scopus:"55233775400",wos:"",ror:"00t33hh48"},
-{sec:"Recommended Candidates",sub:"Learning Sciences",name:"Charlotte Dignath, Ph.D.",aff:"TU Dortmund University",co:"Germany",mail:"charlotte.dignath@tu-dortmund.de",orcid:"0000-0002-5765-0831",scopus:"12244529800",wos:"",ror:"01k97gp34"},
-{sec:"Recommended Candidates",sub:"Learning Sciences",name:"Teeba Jouhi, Ph.D.",aff:"University of Oulu",co:"Finland",mail:"",orcid:"",scopus:"",wos:"",ror:"03yj89h83"},
-{sec:"Recommended Candidates",sub:"Research Methods & Methodology",name:"Burcu Atar, Ph.D.",aff:"Hacettepe University",co:"Turkey",mail:"burcuatar@hacettepe.edu.tr",orcid:"0000-0003-3527-686X",scopus:"55969182500",wos:"",ror:"04vf5hs88"},
-{sec:"Recommended Candidates",sub:"Research Methods & Methodology",name:"Fien Depaepe, Ph.D.",aff:"KU Leuven",co:"Belgium",mail:"fien.depaepe@kuleuven.be",orcid:"0000-0002-9754-371X",scopus:"26533691800",wos:"",ror:"05f950310"},
-{sec:"Recommended Candidates",sub:"Research Methods & Methodology",name:"Bukola Oyinloye, Ph.D.",aff:"University of Johannesburg",co:"South Africa",mail:"",orcid:"",scopus:"",wos:"",ror:"04z6c2n17"},
-{sec:"Recommended Candidates",sub:"Curriculum Design",name:"Nienke Nieveen, Ph.D.",aff:"TU Eindhoven",co:"Netherlands",mail:"n.m.nieveen@tue.nl",orcid:"0000-0001-9078-8222",scopus:"6603258159",wos:"",ror:"02c2kyt77"},
-{sec:"Recommended Candidates",sub:"Curriculum Design",name:"Joke Voogt, Ph.D.",aff:"University of Amsterdam",co:"Netherlands",mail:"j.m.voogt@uva.nl",orcid:"0000-0001-5035-9263",scopus:"6603770753",wos:"",ror:"04dkp9463"},
-{sec:"Recommended Candidates",sub:"Curriculum Design",name:"Cristina Valerio, Ph.D.",aff:"University of Sao Paulo",co:"Brazil",mail:"",orcid:"",scopus:"",wos:"",ror:"036rp1748"},
-{sec:"Recommended Candidates",sub:"Educational Policy",name:"Maren Elfert, Ph.D.",aff:"King's College London",co:"UK / Canada",mail:"maren.elfert@kcl.ac.uk",orcid:"0000-0002-6865-736X",scopus:"55949646500",wos:"",ror:"0220mzb33"},
-{sec:"Recommended Candidates",sub:"Educational Policy",name:"Oren Pizmony-Levy, Ph.D.",aff:"Columbia University",co:"USA / Israel",mail:"op2183@tc.columbia.edu",orcid:"0000-0001-8019-2862",scopus:"55583143600",wos:"",ror:"00hj8s172"},
-{sec:"Recommended Candidates",sub:"Educational Policy",name:"Fatih Balci, Ph.D.",aff:"Ankara University",co:"Turkey",mail:"fbalci@ankara.edu.tr",orcid:"",scopus:"36052618600",wos:"",ror:"01wntqw50"},
-{sec:"Recommended Candidates",sub:"Higher Education Pedagogy",name:"Paul Ashwin, Ph.D.",aff:"Lancaster University",co:"United Kingdom",mail:"p.ashwin@lancaster.ac.uk",orcid:"0000-0002-5151-3094",scopus:"6506477215",wos:"",ror:"04f2nsd36"},
-{sec:"Recommended Candidates",sub:"Higher Education Pedagogy",name:"Tai Peseta, Ph.D.",aff:"University of Sydney",co:"Australia",mail:"",orcid:"",scopus:"",wos:"",ror:"0384j8v12"},
-{sec:"Recommended Candidates",sub:"Higher Education Pedagogy",name:"Brenda Leibowitz, Ph.D.",aff:"University of Johannesburg",co:"South Africa",mail:"brendal@uj.ac.za",orcid:"",scopus:"16176488800",wos:"",ror:"04z6c2n17"},
-{sec:"Recommended Candidates",sub:"Multicultural & Intercultural Education",name:"James A. Banks, Ph.D.",aff:"University of Washington",co:"USA",mail:"",orcid:"",scopus:"",wos:"",ror:"00cvxb145"},
-{sec:"Recommended Candidates",sub:"Multicultural & Intercultural Education",name:"Will Kymlicka, Ph.D.",aff:"Queen's University",co:"Canada",mail:"",orcid:"",scopus:"",wos:"",ror:"02y72wh86"},
-{sec:"Recommended Candidates",sub:"Multicultural & Intercultural Education",name:"Darla Deardorff, Ph.D.",aff:"Duke University",co:"USA",mail:"",orcid:"",scopus:"",wos:"",ror:"00py81415"},
-{sec:"Recommended Candidates",sub:"Educational Psychology & Well-being",name:"Katariina Salmela-Aro, Ph.D.",aff:"University of Helsinki",co:"Finland",mail:"katariina.salmela-aro@helsinki.fi",orcid:"0000-0003-1901-4712",scopus:"6701493794",wos:"",ror:"040af2s02"},
-{sec:"Recommended Candidates",sub:"Educational Psychology & Well-being",name:"Tina Hascher, Ph.D.",aff:"University of Bern",co:"Switzerland",mail:"tina.hascher@unibe.ch",orcid:"0000-0003-0745-874X",scopus:"",wos:"",ror:"02k7v4d05"},
-{sec:"Recommended Candidates",sub:"Educational Psychology & Well-being",name:"Eleftheria N. Gonida, Ph.D.",aff:"Aristotle University of Thessaloniki",co:"Greece",mail:"gonida@psy.auth.gr",orcid:"0000-0002-0774-1351",scopus:"",wos:"",ror:"02j61yw88"},
-{sec:"Scientific Advisory Board",sub:"Assessment & Measurement",name:"Zi Yan, Ph.D.",aff:"Education University of Hong Kong",co:"Hong Kong",mail:"zyan@eduhk.hk",orcid:"0000-0001-9305-884X",scopus:"45562034600",wos:"",ror:"04q3gk398"},
-{sec:"Scientific Advisory Board",sub:"Assessment & Measurement",name:"Juuso H. Nieminen, Ph.D.",aff:"Deakin University",co:"Australia",mail:"juuso.nieminen@deakin.edu.au",orcid:"0000-0003-3087-8933",scopus:"57205722842",wos:"",ror:"02czsnj07"},
-{sec:"Scientific Advisory Board",sub:"Assessment & Measurement",name:"Esther Care, Ph.D.",aff:"University of Melbourne / Brookings",co:"Australia",mail:"ecare@unimelb.edu.au",orcid:"0000-0003-3006-1610",scopus:"7006529093",wos:"",ror:"01ej9dk98"},
-{sec:"Scientific Advisory Board",sub:"Curriculum Design",name:"Joke Voogt, Ph.D.",aff:"University of Amsterdam",co:"Netherlands",mail:"j.m.voogt@uva.nl",orcid:"0000-0001-5035-9263",scopus:"6603770753",wos:"",ror:"04dkp9463"},
-{sec:"Scientific Advisory Board",sub:"Curriculum Design",name:"Nienke Nieveen, Ph.D.",aff:"TU Eindhoven",co:"Netherlands",mail:"n.m.nieveen@tue.nl",orcid:"0000-0001-9078-8222",scopus:"6603258159",wos:"",ror:"02c2kyt77"},
-{sec:"Scientific Advisory Board",sub:"Educational Policy",name:"Guri Skedsmo, Ph.D.",aff:"University of Oslo",co:"Norway / Switzerland",mail:"guri.skedsmo@phsz.ch",orcid:"0000-0002-8528-4818",scopus:"36348630900",wos:"",ror:"01xtthb56"},
-{sec:"Scientific Advisory Board",sub:"Educational Policy",name:"Maren Elfert, Ph.D.",aff:"King's College London",co:"UK / Canada",mail:"maren.elfert@kcl.ac.uk",orcid:"0000-0002-6865-736X",scopus:"55949646500",wos:"",ror:"0220mzb33"},
-{sec:"Scientific Advisory Board",sub:"Educational Technologies & AI",name:"Charoula Angeli, Ph.D.",aff:"University of Cyprus",co:"Cyprus",mail:"cangeli@ucy.ac.cy",orcid:"0000-0002-6375-6085",scopus:"6603398907",wos:"",ror:"02qjrjx09"},
-{sec:"Scientific Advisory Board",sub:"Educational Technologies & AI",name:"Sahana Murthy, Ph.D.",aff:"IIT Bombay",co:"India",mail:"sahanam@iitb.ac.in",orcid:"0000-0001-9527-5451",scopus:"16317516800",wos:"",ror:"02qg5d848"},
-{sec:"Scientific Advisory Board",sub:"Educational Technologies & AI",name:"Javier Valls Prieto, Ph.D.",aff:"University of Granada",co:"Spain",mail:"",orcid:"0000-0001-5191-4515",scopus:"57191291498",wos:"",ror:"04njjy449"},
-{sec:"Scientific Advisory Board",sub:"Higher Education Pedagogy",name:"Paul Ashwin, Ph.D.",aff:"Lancaster University",co:"United Kingdom",mail:"p.ashwin@lancaster.ac.uk",orcid:"0000-0002-5151-3094",scopus:"6506477215",wos:"",ror:"04f2nsd36"},
-{sec:"Scientific Advisory Board",sub:"Higher Education Pedagogy",name:"Brenda Leibowitz, Ph.D.",aff:"University of Johannesburg",co:"South Africa",mail:"brendal@uj.ac.za",orcid:"",scopus:"16176488800",wos:"",ror:"04z6c2n17"},
-{sec:"Scientific Advisory Board",sub:"Inclusive & Multicultural Education",name:"Anabel Moriña, Ph.D.",aff:"University of Seville",co:"Spain",mail:"anabelm@us.es",orcid:"0000-0002-2907-1005",scopus:"35267757200",wos:"",ror:"03yxnpp24"},
-{sec:"Scientific Advisory Board",sub:"Inclusive & Multicultural Education",name:"Tsediso M. Makoelle, Ph.D.",aff:"Nazarbayev University",co:"Kazakhstan",mail:"",orcid:"0000-0002-1744-1583",scopus:"56522229100",wos:"",ror:"052bx8q98"},
-{sec:"Scientific Advisory Board",sub:"Learning Sciences",name:"Ronnel B. King, Ph.D.",aff:"Chinese University of Hong Kong",co:"Hong Kong / Philippines",mail:"ronnelking@cuhk.edu.hk",orcid:"0000-0003-3953-8390",scopus:"55233775400",wos:"",ror:"00t33hh48"},
-{sec:"Scientific Advisory Board",sub:"Learning Sciences",name:"Charlotte Dignath, Ph.D.",aff:"TU Dortmund University",co:"Germany",mail:"charlotte.dignath@tu-dortmund.de",orcid:"0000-0002-5765-0831",scopus:"12244529800",wos:"",ror:"01k97gp34"},
-{sec:"Scientific Advisory Board",sub:"Research Methods",name:"Trude Nilsen, Ph.D.",aff:"University of Oslo",co:"Norway",mail:"trude.nilsen@ils.uio.no",orcid:"0000-0002-0621-1608",scopus:"55326843600",wos:"",ror:"01xtthb56"},
-{sec:"Scientific Advisory Board",sub:"Research Methods",name:"Fien Depaepe, Ph.D.",aff:"KU Leuven",co:"Belgium",mail:"fien.depaepe@kuleuven.be",orcid:"0000-0002-9754-371X",scopus:"26533691800",wos:"",ror:"05f950310"},
-{sec:"Scientific Advisory Board",sub:"Social Studies & Citizenship",name:"Keith C. Barton, Ph.D.",aff:"Indiana University",co:"USA",mail:"kcbarton@indiana.edu",orcid:"0000-0003-1895-1645",scopus:"7102609498",wos:"",ror:"02k40bc56"},
-{sec:"Scientific Advisory Board",sub:"Social Studies & Citizenship",name:"Carla Peck, Ph.D.",aff:"University of Alberta",co:"Canada",mail:"carla.peck@ualberta.ca",orcid:"0000-0002-5410-5135",scopus:"16241393400",wos:"",ror:"0160cpw27"},
-{sec:"Scientific Advisory Board",sub:"Teacher Education",name:"Maria A. Flores, Ph.D.",aff:"University of Minho",co:"Portugal",mail:"aflores@ie.uminho.pt",orcid:"0000-0002-4698-7483",scopus:"7801675638",wos:"",ror:"037eqnt20"},
-{sec:"Scientific Advisory Board",sub:"Teacher Education",name:"Allan B.I. Bernardo, Ph.D.",aff:"De La Salle University",co:"Philippines",mail:"allan.bernardo@dlsu.edu.ph",orcid:"0000-0002-7823-2681",scopus:"7004441429",wos:"",ror:"02sm26776"},
-{sec:"Scientific Advisory Board",sub:"Teacher Education",name:"Sonja Lutovac, Ph.D.",aff:"University of Oulu",co:"Finland",mail:"sonja.lutovac@oulu.fi",orcid:"0000-0002-3909-525X",scopus:"55578976500",wos:"",ror:"03yj89h83"},
-{sec:"Scientific Advisory Board",sub:"Comparative Education",name:"Oren Pizmony-Levy, Ph.D.",aff:"Columbia University",co:"USA / Israel",mail:"op2183@tc.columbia.edu",orcid:"0000-0001-8019-2862",scopus:"55583143600",wos:"",ror:"00hj8s172"},
-{sec:"Scientific Advisory Board",sub:"Comparative Education",name:"Claudia Flores Rodrigues, Ph.D.",aff:"Federal Univ. of Minas Gerais",co:"Brazil",mail:"",orcid:"",scopus:"",wos:"",ror:"0176yjw32"}
-];
-var SK="pedper_v2",D;
-function ld(){try{var s=localStorage.getItem(SK);D=s?JSON.parse(s):JSON.parse(JSON.stringify(DEF));}catch(e){D=JSON.parse(JSON.stringify(DEF));}}
-function sav(){ri();localStorage.setItem(SK,JSON.stringify(D));var m=document.getElementById("sm");m.style.opacity="1";setTimeout(function(){m.style.opacity="0"},2e3);render();}
-function rst(){if(confirm("Tüm değişiklikler silinecek. Emin misiniz?")){localStorage.removeItem(SK);ld();render();}}
-function dlJSON(){ri();var b=new Blob([JSON.stringify(D,null,2)],{type:"application/json"});var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="pedper_"+new Date().toISOString().split("T")[0]+".json";a.click();}
-function impJ(e){var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(ev){try{D=JSON.parse(ev.target.result);localStorage.setItem(SK,JSON.stringify(D));render();alert("✓ "+D.length+" profil içe aktarıldı!");}catch(err){alert("Hata: Geçersiz JSON");}};r.readAsText(f);e.target.value="";}
-function ri(){document.querySelectorAll("input[data-i]").forEach(function(inp){var i=+inp.dataset.i,f=inp.dataset.f;if(D[i])D[i][f]=inp.value.trim();});}
-function pc(a){var t=0,o=0;a.forEach(function(p){F.forEach(function(f){t++;if(p[f])o++;});});return t?Math.round(o/t*100):0;}
-function st(p){var o=0;F.forEach(function(f){if(p[f])o++;});return o===5?"ok":o===0?"no":"partial";}
-function sc(p){
-  var s='[user name="'+p.name+'" affiliation="'+p.aff+'" desc="'+(p.sub||"")+'" country="'+p.co+'"';
-  if(p.mail)s+=' mail="'+p.mail+'"';
-  if(p.orcid)s+=' orcid="https://orcid.org/'+p.orcid+'"';
-  if(p.ror)s+=' ror="https://ror.org/'+p.ror+'"';
-  if(p.wos)s+=' wos="https://www.webofscience.com/wos/author/record/'+p.wos+'"';
-  if(p.scopus)s+=' scopus="https://www.scopus.com/authid/detail.uri?authorId='+p.scopus+'"';
-  return s+']';
-}
-function gv(){
-  var q=document.getElementById("src").value.toLowerCase(),sf=document.getElementById("fS").value,ss=document.querySelector(".fb.on").dataset.f;
-  return D.filter(function(p){if(q&&(p.name+p.aff+p.co+(p.sub||"")).toLowerCase().indexOf(q)<0)return false;if(sf!=="all"&&p.sec!==sf)return false;if(ss!=="all"&&st(p)!==ss)return false;return true;});
-}
-function bld(items){var out="",cs="",cu="";items.forEach(function(p){if(p.sec!==cs){cs=p.sec;cu="";out+='\n<h2><strong>'+cs+'</strong></h2>\n';}if(p.sub&&p.sub!==cu){cu=p.sub;out+='\n<h3><strong>'+cu+'</strong></h3>\n';}out+='<p>'+sc(p)+'</p>\n';});return out.trim();}
-function expAll(){ri();sM("Tüm Profiller — OJS Shortcode ("+D.length+" kişi)",bld(D));}
-function expFlt(){ri();var v=gv();if(!v.length)return alert("Filtre sonucu boş.");sM("Filtrelenen ("+v.length+") — OJS Shortcode",bld(v));}
-function sM(t,c){document.getElementById("mT").textContent=t;document.getElementById("mC").textContent=c;document.getElementById("modal").classList.add("show");}
-function cM(){document.getElementById("modal").classList.remove("show");}
-function cpC(){navigator.clipboard.writeText(document.getElementById("mC").textContent).then(function(){var b=document.querySelector(".cp");b.textContent="✓ Kopyalandı!";setTimeout(function(){b.textContent="📋 Kopyala";},1500);});}
-function dlP(i){
-  ri();var p=D[i];if(!p)return;
-  var ln="═══════════════════════════════════════════════════\n";
-  var t=ln+"  PEDAGOGICAL PERSPECTIVE — Researcher Profile Card\n  eISSN: 2822-4841 · pedagogicalperspective.com\n"+ln+"\n";
-  t+="  Name        : "+p.name+"\n";
-  t+="  Affiliation : "+p.aff+"\n";
-  t+="  Country     : "+p.co+"\n";
-  t+="  Section     : "+p.sec+"\n";
-  if(p.sub)t+="  Field       : "+p.sub+"\n";
-  t+="\n── Identifiers & Links ─────────────────────────────\n\n";
-  t+="  Email       : "+(p.mail||"—")+"\n";
-  t+="  ORCID       : "+(p.orcid?"https://orcid.org/"+p.orcid:"—")+"\n";
-  t+="  Scopus      : "+(p.scopus?"https://www.scopus.com/authid/detail.uri?authorId="+p.scopus:"—")+"\n";
-  t+="  WoS         : "+(p.wos?"https://www.webofscience.com/wos/author/record/"+p.wos:"—")+"\n";
-  t+="  ROR         : "+(p.ror?"https://ror.org/"+p.ror:"—")+"\n";
-  var ok=0;F.forEach(function(f){if(p[f])ok++;});
-  t+="\n── Status ─────────────────────────────────────────\n\n";
-  t+="  Completeness: "+ok+"/"+F.length+" ("+(ok===F.length?"Complete":ok===0?"Missing":"Partial")+")\n";
-  t+="\n── OJS Shortcode ──────────────────────────────────\n\n";
-  t+="  "+sc(p)+"\n";
-  t+="\n"+ln+"  Generated: "+new Date().toISOString().split("T")[0]+"\n"+ln;
-  var fn=p.name.replace(/[^a-zA-Z0-9 ]/g,"").replace(/ +/g,"_").toLowerCase();
-  var b=new Blob([t],{type:"text/plain;charset=utf-8"});
-  var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="pedper_"+fn+".txt";a.click();
-}
-function dlAll(){
-  ri();var ln="═══════════════════════════════════════════════════\n";
-  var out="PEDAGOGICAL PERSPECTIVE — All Researcher Profiles\neISSN: 2822-4841 · pedagogicalperspective.com\nGenerated: "+new Date().toISOString().split("T")[0]+"\nTotal: "+D.length+" researchers\n"+ln+"\n";
-  var cs="";D.forEach(function(p,i){
-    if(p.sec!==cs){cs=p.sec;out+="\n\n"+ln+"  "+cs.toUpperCase()+"\n"+ln+"\n";}
-    out+="  "+(i+1)+". "+p.name+"\n";
-    out+="     "+p.aff+" · "+p.co+"\n";
-    if(p.sub)out+="     Field: "+p.sub+"\n";
-    out+="     Email: "+(p.mail||"—")+" | ORCID: "+(p.orcid||"—")+" | Scopus: "+(p.scopus||"—")+" | WoS: "+(p.wos||"—")+" | ROR: "+(p.ror||"—")+"\n";
-    var ok=0;F.forEach(function(f){if(p[f])ok++;});
-    out+="     Status: "+ok+"/5 "+(ok===5?"✓":ok===0?"✗":"◐")+"\n\n";
-  });
-  out+=ln+"  END OF REPORT\n"+ln;
-  var b=new Blob([out],{type:"text/plain;charset=utf-8"});
-  var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="pedper_all_profiles_"+new Date().toISOString().split("T")[0]+".txt";a.click();
-}
-
-function render(){
-  var q=document.getElementById("src").value.toLowerCase(),sf=document.getElementById("fS").value,ss=document.querySelector(".fb.on").dataset.f;
-  var grp={};D.forEach(function(p,i){p._i=i;p._s=st(p);var ok=true;if(q&&(p.name+p.aff+p.co+(p.sub||"")).toLowerCase().indexOf(q)<0)ok=false;if(sf!=="all"&&p.sec!==sf)ok=false;if(ss!=="all"&&p._s!==ss)ok=false;if(!ok)return;if(!grp[p.sec])grp[p.sec]=[];grp[p.sec].push(p);});
-  // dash
-  var dh=document.getElementById("dash"),tA=0,oA=0,tP=0;dh.innerHTML="";
-  SECS.forEach(function(s){var it=D.filter(function(p){return p.sec===s;});var p=pc(it);var cl=p>=80?"var(--gn)":p>=40?"var(--ac)":"var(--rd)";tP+=it.length;it.forEach(function(x){F.forEach(function(f){tA++;if(x[f])oA++;});});dh.innerHTML+='<div class="sc"><div class="lb">'+s+'</div><div class="nm">'+p+'%</div><div class="dt">'+it.length+' kişi</div><div class="bar"><div class="bf" style="width:'+p+'%;background:'+cl+'"></div></div></div>';});
-  var tp=tA?Math.round(oA/tA*100):0;dh.innerHTML='<div class="sc" style="border:2px solid var(--pr)"><div class="lb">Genel</div><div class="nm">'+tp+'%</div><div class="dt">'+tP+' kişi · '+oA+'/'+tA+'</div><div class="bar"><div class="bf" style="width:'+tp+'%;background:'+(tp>=80?"var(--gn)":tp>=40?"var(--ac)":"var(--rd)")+'"></div></div></div>'+dh.innerHTML;
-  document.getElementById("hB").innerHTML='<span class="bdg g">✓ '+oA+'</span><span class="bdg r">✗ '+(tA-oA)+'</span><span class="bdg y">'+tP+' kişi</span>';
-  // tables
-  var h="";SECS.forEach(function(s){if(!grp[s])return;var it=grp[s];h+='<div class="sec"><div class="sh" onclick="tg(this)"><span class="cv">▼</span><h2>'+s+'</h2><span class="cn">'+it.length+' · '+pc(it)+'%</span></div><div class="sb">';
-  var su={};it.forEach(function(p){var k=p.sub||"—";if(!su[k])su[k]=[];su[k].push(p);});
-  Object.keys(su).forEach(function(k){if(k!=="—")h+='<div class="subh"><h3>'+k+'</h3></div>';h+='<div class="tw"><table><thead><tr><th>#</th><th>İsim / Kurum</th><th>Ülke</th>';F.forEach(function(f){h+='<th>'+LB[f]+'</th>';});h+='<th style="text-align:center">⬇</th></tr></thead><tbody>';
-  su[k].forEach(function(p,j){var dc=p._s==="ok"?"g":p._s==="partial"?"p":"r";h+='<tr><td><span class="dot '+dc+'"></span>'+(j+1)+'</td><td class="nc">'+p.name+'<span class="af">'+p.aff+'</span></td><td style="font-size:.72rem">'+p.co+'</td>';F.forEach(function(f){h+='<td><input type="text" data-i="'+p._i+'" data-f="'+f+'" value="'+(p[f]||"").replace(/"/g,"&quot;")+'" placeholder="'+PH[f]+'" class="'+(p[f]?"ok":"no")+'" onchange="oe(this)"></td>';});h+='<td style="text-align:center"><button class="dlb" onclick="dlP('+p._i+')" title="Profili indir">⬇</button></td></tr>';});
-  h+='</tbody></table></div>';});h+='</div></div>';});
-  document.getElementById("ct").innerHTML=h;
-}
-function oe(inp){var i=+inp.dataset.i,f=inp.dataset.f,v=inp.value.trim();D[i][f]=v;inp.className=v?"ok":"no";localStorage.setItem(SK,JSON.stringify(D));
-var tr=inp.closest("tr");if(tr){var d=tr.querySelector(".dot"),s=st(D[i]);d.className="dot "+(s==="ok"?"g":s==="partial"?"p":"r");}
-var tA=0,oA=0;D.forEach(function(p){F.forEach(function(ff){tA++;if(p[ff])oA++;});});document.getElementById("hB").innerHTML='<span class="bdg g">✓ '+oA+'</span><span class="bdg r">✗ '+(tA-oA)+'</span><span class="bdg y">'+D.length+' kişi</span>';}
-function tg(el){el.classList.toggle("cl");var b=el.nextElementSibling;b.style.display=b.style.display==="none"?"":"none";}
-document.querySelectorAll(".fb").forEach(function(b){b.addEventListener("click",function(){document.querySelectorAll(".fb").forEach(function(x){x.classList.remove("on");});b.classList.add("on");ri();render();});});
-document.getElementById("src").addEventListener("input",function(){ri();render();});
-document.getElementById("fS").addEventListener("change",function(){ri();render();});
-var sn={};DEF.forEach(function(p){if(!sn[p.sec]){sn[p.sec]=1;var o=document.createElement("option");o.value=p.sec;o.textContent=p.sec;document.getElementById("fS").appendChild(o);}});
-document.getElementById("upd").textContent=new Date().toISOString().split("T")[0];
-ld();render();
-</script></body></html>
